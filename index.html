@@ -1,0 +1,454 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Quran Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/jquery-ui.css" rel="stylesheet">
+    <link href="stylesheets/global.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../img/favicon.jpg">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <style>#demo-1{ color:lightBlue; }
+  		span.r1, span.r2, span.r3, span.r4{
+			font-size: 2.2em !important;
+			font-weight:bold !important;
+		}
+		span.r1 {
+			color: red;
+		}
+		span.r2 {
+			color: green;
+		}
+		span.r3 {
+			color: blue;
+		}
+		span.r4 {
+			color: purple;
+		}
+		.arr{
+			line-height: 49px !important;
+			font-size:3.8em !important;
+		}
+		.arr2{
+			line-height: 49px !important;
+			font-size:2.1em !important;
+		}
+		.arr3{
+			line-height: 49px !important;
+			//font-size:2.5em !important;
+		}
+		.small{
+			font-size:0.8em !important;
+		}
+		.arabic{
+			font-size: 2.8em;
+		}
+		div#results{
+			max-height: 400px;
+			overflow: auto;
+		}
+  </style>
+ <!-- <script src="lib/jquery-1.7.min.js" Xsrc="http://code.jquery.com/jquery-latest.js"></script> -->
+<script src="javascripts/jquery-1.7.min.js" language="javascript" type="text/javascript" ></script>
+<script src="javascripts/GlobalQuran.js?v=3.4"></script>
+<script src='javascripts/xregexp.js' ></script>
+</head>
+<body>
+<body>
+  	<div class="mainbar">
+      <div class="mainbar-inner">
+        <div class="container">
+          <a class="btn btn-mainbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+         
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <li><a href="http://blog.globalquran.com/forums/">Feedback</a></li>
+              <li><a href="http://labs.globalquran.com"><img src="../img/favicon.jpg" width="18" /> Back to Lab</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+<script>
+var BuckToBare = function(str){ if(!str) return;
+	str = str.replace(/[{`><]/g, 'A').replace(/[\&]/g, 'w').replace(/[}]/g, 'y').replace( /[\FNK#aeiou~\^]/g, '');
+	return str;
+}
+
+var isArabic = function (word){ if(!word) return false; 
+	var regex = /^[\u0600-\u06ff]*$/, result=null;
+	$.each(word.split(''), function(a, token){
+		if(token){token = $.trim(token);
+			if(token != "-") //lets ignore hyphen
+				result == null ? result = regex.test( token ) : result = result && regex.test(token);
+		}
+	});
+	return result;
+	//var arabic = ArToEn(word).trim();
+	//return ('' != arabic && word.trim().length == arabic.length );
+}
+
+var isEnglish = function (word){ if(!word) return; var eng = EnToAr(word).trim();
+	return ('' != eng && word.trim().length == eng.length );
+}
+
+var EnToAr = function(word){
+	if(!word) return null;
+	initializeMapper();
+	var ar = '', l, letter, found=false;
+	try{
+		var wordArr = word.split(''); //split into letters.	//lookup from english to arabic letter. and return it.
+		for(l=0; l<wordArr.length; ++l){
+			letter = wordArr[l]; found = false;
+			for(n=1; n<_buckArr.length; ++n){
+				if(letter == _buckArr[n]){
+					ar += _charsArr[n]; found=true;
+					break;
+				}
+			}
+			if(!found)  ar += ''; //letter; //' ??'+letter+'?? ';
+		}
+	}catch(ex){
+		debugger;
+		ar = '-err: ' + ex + ex.message + ex.lineno;
+	}
+	return ar;
+}
+
+var ArToEn = function(word){
+	if(!word) return null;
+	initializeMapper();
+	var ar = '', l, letter, found=false;
+	try{
+		var wordArr = word.split(''); //split into letters.	//lookup from english to arabic letter. and return it.
+		for(l=0; l<wordArr.length; ++l){
+			letter = wordArr[l]; found = false;
+			for(n=1; n<_charsArr.length; ++n){
+				if(letter == _charsArr[n]){
+					ar += _buckArr[n]; found=true;
+					break;
+				}
+			}
+			if(!found){  ar += '?'; console.log('No mapping found:\t' + letter + ''); 
+			}
+		}
+	}catch(ex){
+		debugger;
+		ar = '-err: ' + ex + ex.message + ex.lineno;
+	}
+	return ar;
+}
+
+var _charsArr, _buckArr, bInitialized = false;
+var initializeMapper = function(){
+	if(bInitialized) return;
+	var qBare = null, qBuck = null;		
+	var stopletters = "ۚۖۛۗۙ";
+	var chars='آ ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي آ';
+	var buck = 'A A b t v j H x d * r z s $ S D T Z E g f q k l m n h w y A';
+	var buckArr, charsArr;
+	var ext = new Array();
+	var map = { };
+	charsArr = chars.split(' ');
+	buckArr  = buck.split(' ');
+	//mISSING CHARACTERS:		// أ إ ئ ء ة ؤ
+	charsArr.push( 'ى' ); buckArr.push( 'Y' );
+	charsArr.push( 'أ' ); buckArr.push( '>' );
+	charsArr.push( 'إ' ); buckArr.push( '<' );	//charsArr.push( ' ' ); buckArr.push( ' ' ); //charsArr.push( '' ); buckArr.push( '' );
+	charsArr.push( 'ئ' ); buckArr.push( '}' );
+	charsArr.push( 'ء' ); buckArr.push( '\'' ); //buckArr.push( '\'' );
+	//charsArr.push( 'ة' ); buckArr.push( 'P' );
+	charsArr.push( 'ؤ' ); buckArr.push( '&' );
+	//missing characters for harakath.
+	charsArr.push( '\u0652' ); buckArr.push( 'o' );
+	charsArr.push( '\u064e' ); buckArr.push( 'a' );
+	charsArr.push( '\u0650' ); buckArr.push( 'i' );
+	charsArr.push( '\u064f' ); buckArr.push( 'u' );
+	charsArr.push( '\u064b' ); buckArr.push( 'F' );
+	charsArr.push( '\u064d' ); buckArr.push( 'K' );
+	charsArr.push( '\u064c' ); buckArr.push( 'N' );
+	charsArr.push( '\u0626' ); buckArr.push( '}' );
+	charsArr.push( '\u0640' ); buckArr.push( '_' );
+	charsArr.push( '\u0651' ); buckArr.push( '~' );
+	charsArr.push( '\u0653' ); buckArr.push( '^' );
+	charsArr.push( '\u0654' ); buckArr.push( '#' );
+	charsArr.push( '\u0671' ); buckArr.push( '{' );
+	charsArr.push( '\u0670' ); buckArr.push( '`' );
+	charsArr.push( '\u06e5' ); buckArr.push( ',' );
+	charsArr.push( '\u06e6' ); buckArr.push( '.' );
+	charsArr.push( 'ة' ); buckArr.push( 'p' );
+	charsArr.push( '\u06df' ); buckArr.push( '@' );
+	charsArr.push( '\u06e2' ); buckArr.push( '[' );
+	charsArr.push( '\u06ed' ); buckArr.push( ']' );
+	charsArr.push( '\u0621' ); buckArr.push( '\'' );
+	charsArr.push( '\u06DC' ); buckArr.push( ':' );
+	charsArr.push( '\u06E0' ); buckArr.push( '\"' );
+	charsArr.push( ' ' ); buckArr.push( ' ' );
+	charsArr.push( ';' ); buckArr.push( ';' );
+	charsArr.push( '\n' ); buckArr.push( '\n' );
+/*	
+	charsArr.push( 'ع' ); buckArr.push( '3' ); //ayn //support for arabi/chat letters
+	charsArr.push( 'ء' ); buckArr.push( '2' ); //hamza
+	charsArr.push( 'ح' ); buckArr.push( '7' ); //HAA
+	charsArr.push( 'خ' ); buckArr.push( '5' ); //KHAA
+	charsArr.push( 'ص' ); buckArr.push( '9' ); //Saad
+	charsArr.push( 'ط' ); buckArr.push( '6' ); //Thaw
+
+	charsArr.push( charsArr[2] ); buckArr.push( 'B' ); //Support for Capital letters
+	charsArr.push( charsArr[4] ); buckArr.push( 'V' );
+	charsArr.push( charsArr[5] ); buckArr.push( 'J' );
+	charsArr.push( charsArr[10] ); buckArr.push( 'R' );
+	charsArr.push( charsArr[19] ); buckArr.push( 'G' );
+	charsArr.push( charsArr[21] ); buckArr.push( 'Q' );
+	charsArr.push( charsArr[23] ); buckArr.push( 'L' );
+	charsArr.push( charsArr[24] ); buckArr.push( 'M' );
+	charsArr.push( charsArr[27] ); buckArr.push( 'W' );
+	charsArr.push( 'ة' ); buckArr.push( 'P' );
+	
+	//For IndoPak script extra letters
+	charsArr.push( 'ی' ); buckArr.push( 'y' );
+	charsArr.push( 'ۃ' ); buckArr.push( 'p' );
+	charsArr.push( 'ہ' ); buckArr.push( 'h' );
+	charsArr.push( 'ی' ); buckArr.push( 'Y' );
+	charsArr.push( 'ک' ); buckArr.push( 'k' );
+	charsArr.push( 'ۤ ' ); buckArr.push( '?' );
+	charsArr.push( 'ۤۚ ' ); buckArr.push( '?' );
+	charsArr.push( 'ۡ ' ); buckArr.push( '?' );
+	charsArr.push( 'ۚ ' ); buckArr.push( '?' );
+	charsArr.push( 'ۤ ' ); buckArr.push( '?' );
+*/
+	_charsArr = charsArr; _buckArr = buckArr;
+	bInitialized = true;
+}		
+initializeMapper();
+</script>
+<style>
+textarea{ width: auto !important; height: auto !important; min-width: 140px !important; height: 300px!important;}
+</style>
+  <!-- <div class="container"> -->
+  <div class="container-fluid">
+	<H3>Quran search</H3>
+	<div class="row-fluid">
+		<div class="span2">	 <!--Sidebar content--><BR/>
+			<input id=keyword zonkeyup="gq.search($('#keyword').val() )" value=rHm />
+			<input id=dosearch type=button onclick="gq.doSearch($('#keyword').val() )" value="search" /><BR />
+			<strong>Summary</strong><BR />
+			<span id=summary>&nbsp;</span>
+		</div>
+		<div id=results2 class="span10"><BR /><BR />
+			<strong>Search results:</strong><BR />
+		  <!--Body content-->
+			<div class="span2"><span></span><textarea id=buck rows=30 columns=50></textarea></div>
+			<div class="span2"><span></span><textarea id=bare rows=30 columns=50></textarea></div>
+			<div class="span2"><span></span><textarea id=lem rows=30 columns=50></textarea></div>
+			<div class="span2"><span></span><textarea id=root rows=30 columns=50></textarea></div>
+			<div class="span2"><span></span><textarea id=corpus rows=30 columns=50></textarea></div>
+			<!--<textarea id=corpusFULL rows=30 columns=100></textarea>-->
+			<div class="span2"><span></span><textarea id=word rows=30 columns=50></textarea></div>
+			<div class="span2"><span></span><textarea id=trans rows=30 columns=50></textarea></div>
+			<div class="span2"><span></span><textarea id=translit rows=30 columns=50></textarea></div>
+		</div>
+	  </div>
+	</div>
+<script>
+var gq = {
+    ds1: [], ds2: [], ds3: [], ds4: [], 
+	dsbuck: [], dsword: [], dscorpus: [],
+	dsroot: [], dslem: [], 
+	dstrans: [], dstranslit: [],
+	_rawdata: {},
+    loadedEMPTYQURANJSON: false, 
+    loadedPercent: 0,
+    loadedPart1: false,    loadedPart2: false, loadedPart3: false,
+    loaded: false,
+
+    cookdata: function(type, _DATA){ //NOTE: CURRENTLY parameters are not being used in existing code. REFACTOR NEEDED!!
+        console.log('cookdata called - ' + type + '\t' + (_DATA ? _DATA.length : '-') ); 
+		gq._rawdata[type] = _DATA;
+		if(type == 'word'){ gq.ds2 = gq.dsword = _DATA.split('\n'); }
+		else if(type == 'buck'){ gq.ds1 = gq.dsbuck = _DATA.split('\n'); }
+		else if(type == 'corpus'){ gq.ds4 = gq.dscorpus = _DATA.split('\n'); }
+		else if(type == 'root'){ gq.dsroot = _DATA.split('\n'); }
+		else if(type == 'lem'){  gq.dslem  = _DATA.split('\n'); }
+		else return;
+		
+        if(gq.loaded) return; var parts = [gq.MANZIL1, gq.MANZIL234, gq.MANZIL56, gq.MANZIL7], test = true;
+        $.each(parts, function(manzilno, MANZIL){
+            if(typeof(MANZIL) == 'undefined' || MANZIL.length < 500) test = false;
+        }); if(test) gq.loaded = true; else return;
+        var words = [], tokens = [], tmp = [], lines;
+        $.each(parts, function(manzilno, MANZIL){
+            if( MANZIL ){
+                $.each(MANZIL.slice(1), function(lineno, line){ lines = {};
+                    $.each(words = line.split('★'), function(wordno, word){
+                        $.each(tokens = word.split('⚓'), function(tokenno, token){ if(token){ 
+                            token = $.trim(token); lines[tokenno] ? (lines[tokenno].push(token) ): (lines[tokenno] = [token]) };
+                        });                    
+                    });
+                    gq.ds1.push( lines[0].join(' ') ); gq.ds2.push( lines[1].join('$') ); 
+                    //N|LEM:{som|ROOT:smw|M|GEN PN|LEM:{ll~ah|ROOT:Alh|GEN ADJ|LEM:r~aHoma`n|ROOT:rHm|MS|GEN ADJ|LEM:r~aHiym|ROOT:rHm|MS|GEN
+                    var line2, line = lines[2].join(' '); gq.ds3.push( line ); 
+                    line2 = line.replace(/\|LEM:[^\|]*/g, '').replace(/\|ROOT:[^\|]*/g, ''); gq.ds4.push( line2 );
+
+                    var tokens = ['LEM:', 'ROOT:'], ds = ['', ''];
+                    $.each(tokens, function(tokenno, token){
+                        $.each(lines[2], function(lineno, line){
+                            if(line.indexOf(token) == -1){ ds[tokenno] += '- '; }
+                            else{ line = line.split( token )[1];
+                                if(!line.indexOf('|') == -1){ alert('no pipe sep: ' + line); debugger; }//check for | ??
+                                line = line.split('|')[0]; 
+                                ds[tokenno] += line + ' ';//console.log(data + data1); 
+                            }
+                        });
+                    });
+                    //TODO: put back this. gq.dslem.push( $.trim(ds[0] ) ); gq.dsroot.push( $.trim(ds[1] ) );
+                    gq.dslem.push( (ds[0] ) ); gq.dsroot.push( (ds[1] ) );
+                });
+            };
+        });
+    },
+    
+    display: function(_keyword, type, obj){ 
+		var _html = '';
+		if(obj.d){
+			$('#'+ type).val(!obj ? '-' : (obj.d.join('\n')) );
+			//gq._log(JSON.stringify(obj) );
+		}
+		_html = type +'&nbsp;&nbsp;'+ _keyword + '&nbsp;&nbsp;';
+		_html += obj.n == 0 ? '<span class="badge Xbadge-inverse">' : '<span class="badge badge-info">';
+		_html += obj.n + '</span>&nbsp;&nbsp;<span style=color:gray;font-size:0.87em;><font color=' + (obj.t>200 ? 'red' : (obj.t > 100 ? 'orange' : 'gray') ) + '>' + obj.t + ' msec</span>';
+		$('#'+ type).prev('span').html(_html);
+    },
+
+    typesArray: ["buck", "bare", "lem", "root", "corpus", "word", "trans", "translit", ],
+    
+    displayReset: function(){ 
+        $.each(gq.typesArray, function(typeno, type){
+            $('#'+type).val('...'); 
+			$('#'+type).prev('span').html('');
+        });
+		$('#summary').html('<IMG SRC="images/loading.gif"></IMG>');
+    },
+    _ctime: null,
+	_ctimestamp: new Date().getTime(),
+	_timestamp: function(){ var time = new Date().getTime(); return -1 * (gq._ctimestamp - (time) ); },
+	_log: function(msg){ console.log( gq._timestamp() +' '+ msg) },
+	
+    search: function(_keyword){ if( (!_keyword) || (_keyword.length <= 2) ) return;
+		var _log = 'gq.search ' + _keyword + ' ' + gq._ctime + ' ';
+		if(gq._ctime){ clearTimeout( gq._ctime ); gq._ctime = null; }
+		gq._ctime = setTimeout( 'gq.doSearch("' + _keyword + '")', 150);
+		gq._log( _log + gq._ctime );
+	},
+	_data: {},
+	
+	doSearch: function(_keyword){ if( (!_keyword) || (_keyword.length <= 2) ) return;
+		gq.displayReset();
+		setTimeout( 'gq.doSearch2("' + _keyword + '")', 1);
+	},
+	doSearch2: function(_keyword){
+		var timeBaseline = new Date().getTime(), timeDone, _summary='';
+		gq._log( ' gq.doSearch: ' + _keyword +' '+ gq._ctime );
+        var regexp, temp, result = {}, type, obj, keyword = _keyword; result[ _keyword ] = {};
+		
+        type = "buck"; temp = keyword; regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "g");
+		if(!gq._data[type]) gq._data[type] = prefixLineno(gq.ds1);
+        obj = result[_keyword][ type ] = gq.search2(temp, regexp, gq._data[type] ); gq.display(_keyword, type, obj);
+		
+        type = "bare"; temp = BuckToBare(keyword); regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "g");
+		if(!gq._data[type]) gq._data[type] = prefixLineno( BuckToBare( gq.ds1.join('\n') ).split('\n') );
+        obj = result[_keyword][type] = gq.search2(temp, regexp, gq._data[type] );  gq.display(BuckToBare(keyword), type, obj);
+
+        type = "lem"; temp = keyword; regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "g");
+        if(!gq._data[type]) gq._data[type] = prefixLineno(gq.dslem);
+		obj = result[_keyword][type] = gq.search2(temp, regexp, gq._data[type]  ); gq.display(_keyword, type, obj);
+
+        type = "root";  temp = keyword; regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "g");
+		if(!gq._data[type]) gq._data[type] = prefixLineno(gq.dsroot);
+        obj = result[_keyword][ type ] = gq.search2(temp, regexp, gq._data[type] ); gq.display(_keyword, type, obj);
+
+        //type = "corpusFULL"; regexp = new RegExp(".*(?:" + keyword + ").*", "gi");
+        //obj = result[_keyword][ type ] = gq.search2(keyword, regexp, prefixLineno(gq.ds3) ); gq.display(_keyword, type, obj);
+        type = "corpus"; temp = keyword; regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "gi");
+        obj = result[_keyword][ type ] = gq.search2(temp, regexp, prefixLineno(gq.ds4) ); gq.display(_keyword, type, obj);
+        
+		type = "word"; temp = keyword; regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "gi"); //RegExp(".*" + escapeRegex(token) + ".*", "gi");
+		if(!gq._data[type]) gq._data[type] = prefixLineno(gq.ds2);
+        obj = result[_keyword][ type ] = gq.search2(temp, regexp, gq._data[type] ); gq.display(_keyword, type, obj);
+        
+		type = "trans"; temp = keyword; regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "gi"); 
+		if(!gq._data[type]){ if(gq._rawdata[type]){	gq._data[type] = prefixLineno( gq._rawdata[type].split('\n') ); } }
+		if(gq._data[type]){ obj = result[_keyword][ type ] = gq.search2(temp, regexp, gq._data[type] ); gq.display(_keyword, type, obj);}
+		        
+		type = "translit"; temp = keyword; regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "gi"); 
+		var _rawArr = $( gq._rawdata[type] ).text().split('\n');
+		if(!gq._data[type]){ if(gq._rawdata[type]){	gq._data[type] = prefixLineno( _rawArr ); } }
+		if(gq._data[type]){ obj = result[_keyword][ type ] = gq.search2(temp, regexp, gq._data[type] ); gq.display(_keyword, type, obj);}
+		
+        
+		timeDone = new Date().getTime(); 
+		_summary += 'Time taken: ' + (timeDone - timeBaseline) + ' msec';
+        $('#summary').html( _summary );//console.log( JSON.stringify( result ) );
+        return result;
+    },
+    
+    search2: function(word, regexp, DATA){ var o = {}, results, timeBaseline = new Date().getTime(), timeDone;
+        results = DATA.match(regexp); o["n"] = (!results) ? 0 : results.length; 
+        if(results) $.each(results, function(hitno, hit){
+            results[hitno] = parseInt( results[hitno].split('|')[0] );
+        }); timeDone = new Date().getTime(); o["t"] = timeDone - timeBaseline;
+        o["d"] = results; return o;
+    }
+
+}
+var prefixLineno = function(DATAarr){ if(!DATAarr) return; var out = []; 
+    $.each(DATAarr, function(lineno, line){
+        out.push(lineno + '|'+ line);
+    });
+    return out.join('\n');
+}
+
+var escapeRegex = function (str) {
+        return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+
+var BuckToBare = function(str){ if(!str) return;
+    str = str.replace(/[{`><]/g, 'A').replace(/[\&]/g, 'w').replace(/[}]/g, 'y').replace( /[\FNK#aeiou~\^]/g, '');
+    return str;
+}
+
+</script>
+<!--
+<script src=data/manzil1,7.js></script>
+<script src=data/manzil5,6.js></script>
+<script src=data/manzil2,3,4.js></script>
+<script src=data/qBare.txt_script.js></script>
+-->
+<script src=data/qBuck.txt_script.js></script>
+
+<script src=data/qRoot.txt_script.js></script>
+<script src=data/qLem.txt_script.js></script>
+<script src=data/qCorpus.txt_script.js></script>
+
+<script src=data/qWord.txt_script.js></script>
+<script src=data/TANZIL.en.sahih.txt_script.js></script>
+<script src=data/TANZIL.en.transliteration.txt_script.js></script>
+</body>
