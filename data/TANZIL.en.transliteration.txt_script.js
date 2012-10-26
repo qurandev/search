@@ -1,4 +1,4 @@
-var type='translit', _DATA = "\n\1|1|Bismi All<u>a</U>hi a<b>l</B>rra<u>h</U>m<u>a</U>ni a<b>l</B>rra<u>h</U>eem<b>i</b>\n\
+var type='translit', _DATA = " <b>\n1|1|Bismi All</u><u>a</u>hi a<b>l</b>rra<u>h</u>m<u>a</u>ni a<b>l</b>rra<u>h</u>eem<b>i</b>\n\
 1|2|Al<u>h</U>amdu lill<u>a</U>hi rabbi alAA<u>a</U>lameen<b>a</b>\n\
 1|3|A<b>l</B>rra<u>h</U>m<u>a</U>ni a<b>l</B>rra<u>h</U>eem<b>i</b>\n\
 1|4|M<u>a</U>liki yawmi a<b>l</B>ddeen<b>i</b>\n\

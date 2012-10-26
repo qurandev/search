@@ -1,0 +1,142 @@
+﻿TESTs:
+
+daeefa
+kaanannaasu
+unnathan wahidatun
+saqila
+inni saqeem
+majreha 11:41
+kahf
+bakka 3:96
+makka 48:24?
+yusuf!
+musa!   	moosa
+mohammad!  	muhammad
+sulaiman!	sulaymana
+zaid!		zayd
+ya ayyuhalla
+taqwa
+anamta!!
+khaleefa
+mujrim
+mushfiq
+rahb
+bayyinah!	bayyina
+khayrin faqir!
+ulul albaab!
+jibaal
+
+mashallah
+inshallah
+alhamdulillah
+umirtu!  omirtu
+umirtu!	 waomirtu 27:91
+mumin
+
+
+
+
+///////////// RESULT when querying earlier searchset everytime -- 150 bounce delay instead of 300 //////////////////// _(_history).map( function(item, key){ return item.l; });
+t [148, 5, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 0]
+
+b [656356, 23940, 8777, 6254, 1423, 164, 164, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86]
+
+l [6215, 192, 384, 447, 5254, 289, 201, 180, 1019, 240, 197, 172, 179, 160, 654, 229, 353, 200, 530, 238, 276, 238, 436, 162, 451, 200, 464, 230, 235, 257, 870, 194, 289, 272, 383, 442, 160, 249, 525, 235, 240, 201, 169, 531, 384, 590, 239, 247, 345, 160, 216, 234, 322, 301, 454, 203, 230, 153, 788, 189, 210, 413, 288, 328, 201, 381, 179, 233, 209]
+
+[{"k":"sir","n":196,"b":656356,"t":148,"l":6215},{"k":"sira","n":76,"b":23940,"t":5,"l":192},{"k":"sirat","n":56,"b":8777,"t":2,"l":384},{"k":"sirata","n":14,"b":6254,"t":2,"l":447},{"k":"sirata a","n":3,"b":1423,"t":2,"l":5254},{"k":"sirata al","n":3,"b":164,"t":1,"l":289},{"k":"sirata all","n":1,"b":164,"t":1,"l":201},{"k":"sirata alla","n":1,"b":86,"t":1,"l":180},{"k":"sirata allat","n":1,"b":86,"t":1,"l":1019},{"k":"sirata allath","n":1,"b":86,"t":1,"l":240},{"k":"sirata allathe","n":1,"b":86,"t":1,"l":197},{"k":"sirata allathee","n":1,"b":86,"t":1,"l":172},{"k":"sirata allatheen","n":1,"b":86,"t":1,"l":179},{"k":"sirata allatheena","n":1,"b":86,"t":1,"l":160},{"k":"sirata allatheena a","n":1,"b":86,"t":1,"l":654},{"k":"sirata allatheena an","n":1,"b":86,"t":1,"l":229},{"k":"sirata allatheena ana","n":1,"b":86,"t":1,"l":353},{"k":"sirata allatheena anaa","n":1,"b":86,"t":1,"l":200},{"k":"sirata allatheena anaaa","n":1,"b":86,"t":1,"l":530},{"k":"sirata allatheena anaaam","n":1,"b":86,"t":1,"l":238},{"k":"sirata allatheena anaaamt","n":1,"b":86,"t":1,"l":276},{"k":"sirata allatheena anaaamta","n":1,"b":86,"t":1,"l":238},{"k":"sirata allatheena anaaamta a","n":1,"b":86,"t":1,"l":436},{"k":"sirata allatheena anaaamta aa","n":1,"b":86,"t":1,"l":162},{"k":"sirata allatheena anaaamta aaa","n":1,"b":86,"t":1,"l":451},{"k":"sirata allatheena anaaamta aaal","n":1,"b":86,"t":1,"l":200},{"k":"sirata allatheena anaaamta aaalay","n":1,"b":86,"t":1,"l":464},{"k":"sirata allatheena anaaamta aaalayh","n":1,"b":86,"t":1,"l":230},{"k":"sirata allatheena anaaamta aaalayhi","n":1,"b":86,"t":1,"l":235},{"k":"sirata allatheena anaaamta aaalayhim","n":1,"b":86,"t":1,"l":257},{"k":"sirata allatheena anaaamta aaalayhim g","n":1,"b":86,"t":1,"l":870},{"k":"sirata allatheena anaaamta aaalayhim gh","n":1,"b":86,"t":1,"l":194},{"k":"sirata allatheena anaaamta aaalayhim ghay","n":1,"b":86,"t":1,"l":289},{"k":"sirata allatheena anaaamta aaalayhim ghayr","n":1,"b":86,"t":1,"l":272},{"k":"sirata allatheena anaaamta aaalayhim ghayri","n":1,"b":86,"t":1,"l":383},{"k":"sirata allatheena anaaamta aaalayhim ghayri a","n":1,"b":86,"t":1,"l":442},{"k":"sirata allatheena anaaamta aaalayhim ghayri al","n":1,"b":86,"t":1,"l":160},{"k":"sirata allatheena anaaamta aaalayhim ghayri alm","n":1,"b":86,"t":1,"l":249},{"k":"sirata allatheena anaaamta aaalayhim ghayri almag","n":1,"b":86,"t":1,"l":525},{"k":"sirata allatheena anaaamta aaalayhim ghayri almagh","n":1,"b":86,"t":1,"l":235},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghd","n":1,"b":86,"t":1,"l":240},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdo","n":1,"b":86,"t":1,"l":201},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoo","n":1,"b":86,"t":1,"l":169},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoob","n":1,"b":86,"t":0,"l":531},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi","n":1,"b":86,"t":1,"l":384},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi a","n":1,"b":86,"t":0,"l":590},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aa","n":1,"b":86,"t":1,"l":239},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaa","n":1,"b":86,"t":2,"l":247},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaal","n":1,"b":86,"t":1,"l":345},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaala","n":1,"b":86,"t":1,"l":160},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalay","n":1,"b":86,"t":1,"l":216},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayh","n":1,"b":86,"t":2,"l":234},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhi","n":1,"b":86,"t":1,"l":322},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim","n":1,"b":86,"t":1,"l":301},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim w","n":1,"b":86,"t":1,"l":454},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wa","n":1,"b":86,"t":1,"l":203},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wal","n":1,"b":86,"t":1,"l":230},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala","n":1,"b":86,"t":1,"l":153},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala a","n":1,"b":86,"t":1,"l":788},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala al","n":1,"b":86,"t":1,"l":189},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala ald","n":1,"b":86,"t":1,"l":210},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala aldd","n":1,"b":86,"t":1,"l":413},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala aldda","n":1,"b":86,"t":1,"l":288},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddal","n":1,"b":86,"t":2,"l":328},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddall","n":1,"b":86,"t":1,"l":201},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalle","n":1,"b":86,"t":1,"l":381},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddallee","n":1,"b":86,"t":1,"l":179},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleen","n":1,"b":86,"t":1,"l":233},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleena","n":1,"b":86,"t":0,"l":209}] controllers.js:73
+
+
+///////////// RESULT when querying earlier searchset everytime -- 150 bounce delay instead of 300 //////////////////// _(_history).map( function(item, key){ return item.l; });
+[151, 6, 2, 2, 1, 1, 1, 0, 1, 1, 1, 1, 2, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[4596, 305, 374, 476, 718, 359, 253, 209, 434, 759, 356, 184, 290, 283, 583, 253, 340, 184, 433, 291, 230, 252, 515, 210, 382, 624, 463, 304, 342, 310, 777, 255, 441, 393, 404, 662, 434, 313, 415, 408, 767, 332, 202, 219, 514, 477, 249, 442, 383, 239, 393, 249, 283, 310, 457, 230, 209, 523, 238, 658, 224, 359, 264, 208, 373, 210, 346, 335]
+
+[{"k":"sir","t":151,"n":196,"l":4596},{"k":"sira","t":6,"n":76,"l":305},{"k":"sirat","t":2,"n":56,"l":374},{"k":"sirata","t":2,"n":14,"l":476},{"k":"sirata a","t":1,"n":3,"l":718},{"k":"sirata al","t":1,"n":3,"l":359},{"k":"sirata all","t":1,"n":1,"l":253},{"k":"sirata alla","t":0,"n":1,"l":209},{"k":"sirata allat","t":1,"n":1,"l":434},{"k":"sirata allath","t":1,"n":1,"l":759},{"k":"sirata allathe","t":1,"n":1,"l":356},{"k":"sirata allathee","t":1,"n":1,"l":184},{"k":"sirata allatheen","t":2,"n":1,"l":290},{"k":"sirata allatheena","t":0,"n":1,"l":283},{"k":"sirata allatheena a","t":2,"n":1,"l":583},{"k":"sirata allatheena an","t":1,"n":1,"l":253},{"k":"sirata allatheena ana","t":1,"n":1,"l":340},{"k":"sirata allatheena anaa","t":1,"n":1,"l":184},{"k":"sirata allatheena anaaa","t":1,"n":1,"l":433},{"k":"sirata allatheena anaaam","t":1,"n":1,"l":291},{"k":"sirata allatheena anaaamt","t":1,"n":1,"l":230},{"k":"sirata allatheena anaaamta","t":1,"n":1,"l":252},{"k":"sirata allatheena anaaamta a","t":1,"n":1,"l":515},{"k":"sirata allatheena anaaamta aa","t":1,"n":1,"l":210},{"k":"sirata allatheena anaaamta aaa","t":1,"n":1,"l":382},{"k":"sirata allatheena anaaamta aaal","t":0,"n":1,"l":624},{"k":"sirata allatheena anaaamta aaalay","t":1,"n":1,"l":463},{"k":"sirata allatheena anaaamta aaalayh","t":1,"n":1,"l":304},{"k":"sirata allatheena anaaamta aaalayhi","t":1,"n":1,"l":342},{"k":"sirata allatheena anaaamta aaalayhim","t":1,"n":1,"l":310},{"k":"sirata allatheena anaaamta aaalayhim g","t":1,"n":1,"l":777},{"k":"sirata allatheena anaaamta aaalayhim gh","t":1,"n":1,"l":255},{"k":"sirata allatheena anaaamta aaalayhim ghay","t":1,"n":1,"l":441},{"k":"sirata allatheena anaaamta aaalayhim ghayr","t":1,"n":1,"l":393},{"k":"sirata allatheena anaaamta aaalayhim ghayri","t":1,"n":1,"l":404},{"k":"sirata allatheena anaaamta aaalayhim ghayri a","t":1,"n":1,"l":662},{"k":"sirata allatheena anaaamta aaalayhim ghayri al","t":1,"n":1,"l":434},{"k":"sirata allatheena anaaamta aaalayhim ghayri alm","t":0,"n":1,"l":313},{"k":"sirata allatheena anaaamta aaalayhim ghayri almag","t":0,"n":1,"l":415},{"k":"sirata allatheena anaaamta aaalayhim ghayri almagh","t":1,"n":1,"l":408},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghd","t":1,"n":1,"l":767},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdo","t":1,"n":1,"l":332},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoo","t":3,"n":1,"l":202},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoob","t":1,"n":1,"l":219},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi","t":1,"n":1,"l":514},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi a","t":1,"n":1,"l":477},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aa","t":1,"n":1,"l":249},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaa","t":1,"n":1,"l":442},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaal","t":1,"n":1,"l":383},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaala","t":0,"n":1,"l":239},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalay","t":1,"n":1,"l":393},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayh","t":1,"n":1,"l":249},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhi","t":0,"n":1,"l":283},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim","t":1,"n":1,"l":310},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim w","t":1,"n":1,"l":457},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wa","t":1,"n":1,"l":230},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wal","t":1,"n":1,"l":209},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala a","t":1,"n":1,"l":523},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala al","t":1,"n":1,"l":238},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala ald","t":1,"n":1,"l":658},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala aldd","t":1,"n":1,"l":224},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala aldda","t":1,"n":1,"l":359},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddal","t":1,"n":1,"l":264},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddall","t":1,"n":1,"l":208},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalle","t":1,"n":1,"l":373},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddallee","t":1,"n":1,"l":210},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleen","t":1,"n":1,"l":346},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleena","t":1,"n":1,"l":335}] controllers.js:67
+
+///////////// RESULT when querying entire data everytime -- 150 bounce delay instead of 300 //////////////////// _(_history).map( function(item, key){ return item.l; });
+[148, 151, 150, 151, 151, 153, 156, 149, 152, 154, 151, 153, 153, 152, 151, 160, 155, 150, 152, 153, 152, 153, 158, 157, 152, 156, 155, 150, 155, 155, 151, 149, 155, 156, 151, 163, 155, 154, 151, 155, 155, 151, 155, 153, 154, 160, 156, 151, 151, 155, 153, 154, 156, 159, 151, 156, 153, 152, 153, 153, 157, 153, 154, 152, 155, 158, 154, 154, 155, 155, 155, 152]
+
+[12892, 505, 543, 585, 3508, 1249, 181, 160, 549, 691, 289, 181, 215, 210, 462, 177, 295, 180, 461, 278, 193, 163, 470, 181, 339, 278, 217, 350, 267, 387, 319, 824, 231, 165, 526, 469, 547, 628, 246, 327, 226, 319, 326, 260, 306, 189, 296, 419, 671, 253, 337, 245, 229, 282, 226, 277, 356, 464, 162, 385, 325, 550, 253, 257, 364, 326, 275, 193, 355, 165, 328, 355]
+
+[{"k":"sir","t":148,"n":196,"l":12892},{"k":"sira","t":151,"n":76,"l":505},{"k":"sirat","t":150,"n":56,"l":543},{"k":"sirata","t":151,"n":14,"l":585},{"k":"sirata a","t":151,"n":3,"l":3508},{"k":"sirata al","t":153,"n":3,"l":1249},{"k":"sirata all","t":156,"n":1,"l":181},{"k":"sirata alla","t":149,"n":1,"l":160},{"k":"sirata allat","t":152,"n":1,"l":549},{"k":"sirata allath","t":154,"n":1,"l":691},{"k":"sirata allathe","t":151,"n":1,"l":289},{"k":"sirata allathee","t":153,"n":1,"l":181},{"k":"sirata allatheen","t":153,"n":1,"l":215},{"k":"sirata allatheena","t":152,"n":1,"l":210},{"k":"sirata allatheena a","t":151,"n":1,"l":462},{"k":"sirata allatheena an","t":160,"n":1,"l":177},{"k":"sirata allatheena ana","t":155,"n":1,"l":295},{"k":"sirata allatheena anaa","t":150,"n":1,"l":180},{"k":"sirata allatheena anaaa","t":152,"n":1,"l":461},{"k":"sirata allatheena anaaam","t":153,"n":1,"l":278},{"k":"sirata allatheena anaaamt","t":152,"n":1,"l":193},{"k":"sirata allatheena anaaamta","t":153,"n":1,"l":163},{"k":"sirata allatheena anaaamta a","t":158,"n":1,"l":470},{"k":"sirata allatheena anaaamta aa","t":157,"n":1,"l":181},{"k":"sirata allatheena anaaamta aaa","t":152,"n":1,"l":339},{"k":"sirata allatheena anaaamta aaal","t":156,"n":1,"l":278},{"k":"sirata allatheena anaaamta aaala","t":155,"n":1,"l":217},{"k":"sirata allatheena anaaamta aaalay","t":150,"n":1,"l":350},{"k":"sirata allatheena anaaamta aaalayh","t":155,"n":1,"l":267},{"k":"sirata allatheena anaaamta aaalayhi","t":155,"n":1,"l":387},{"k":"sirata allatheena anaaamta aaalayhim","t":151,"n":1,"l":319},{"k":"sirata allatheena anaaamta aaalayhim g","t":149,"n":1,"l":824},{"k":"sirata allatheena anaaamta aaalayhim gh","t":155,"n":1,"l":231},{"k":"sirata allatheena anaaamta aaalayhim gha","t":156,"n":1,"l":165},{"k":"sirata allatheena anaaamta aaalayhim ghay","t":151,"n":1,"l":526},{"k":"sirata allatheena anaaamta aaalayhim ghayr","t":163,"n":1,"l":469},{"k":"sirata allatheena anaaamta aaalayhim ghayri","t":155,"n":1,"l":547},{"k":"sirata allatheena anaaamta aaalayhim ghayri a","t":154,"n":1,"l":628},{"k":"sirata allatheena anaaamta aaalayhim ghayri al","t":151,"n":1,"l":246},{"k":"sirata allatheena anaaamta aaalayhim ghayri alm","t":155,"n":1,"l":327},{"k":"sirata allatheena anaaamta aaalayhim ghayri alma","t":155,"n":1,"l":226},{"k":"sirata allatheena anaaamta aaalayhim ghayri almag","t":151,"n":1,"l":319},{"k":"sirata allatheena anaaamta aaalayhim ghayri almagh","t":155,"n":1,"l":326},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghd","t":153,"n":1,"l":260},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdo","t":154,"n":1,"l":306},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoo","t":160,"n":1,"l":189},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoob","t":156,"n":1,"l":296},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi","t":151,"n":1,"l":419},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi a","t":151,"n":1,"l":671},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aa","t":155,"n":1,"l":253},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaa","t":153,"n":1,"l":337},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaal","t":154,"n":1,"l":245},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaala","t":156,"n":1,"l":229},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalay","t":159,"n":1,"l":282},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayh","t":151,"n":1,"l":226},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhi","t":156,"n":1,"l":277},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim","t":153,"n":1,"l":356},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim w","t":152,"n":1,"l":464},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wa","t":153,"n":1,"l":162},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wal","t":153,"n":1,"l":385},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala","t":157,"n":1,"l":325},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala a","t":153,"n":1,"l":550},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala al","t":154,"n":1,"l":253},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala ald","t":152,"n":1,"l":257},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala aldd","t":155,"n":1,"l":364},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala aldda","t":158,"n":1,"l":326},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddal","t":154,"n":1,"l":275},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddall","t":154,"n":1,"l":193},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalle","t":155,"n":1,"l":355},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddallee","t":155,"n":1,"l":165},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleen","t":155,"n":1,"l":328},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleena","t":152,"n":1,"l":355}] controllers.js:63
+sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleen 
+
+
+///////////// RESULT when querying entire data everytime ////////////////////
+[151, 152, 157, 155, 164, 152, 152, 155, 154, 153, 154, 151, 157, 152, 156, 151, 153, 154, 154, 151, 156, 157, 153, 151, 154, 152, 155, 155, 150, 157, 152, 150, 154, 152, 154, 150, 151, 155, 156, 154]
+
+[0, 949, 1402, 1078, 719, 416, 754, 515, 598, 322, 883, 754, 890, 544, 764, 624, 1237, 1254, 754, 1025, 317, 804, 1169, 598, 821, 504, 486, 940, 503, 520, 736, 626, 310, 1077, 405, 675, 737, 438, 711, 791]
+
+["sirata a", "sirata allat", "sirata allatheena a", "sirata allatheena an", "sirata allatheena ana", "sirata allatheena anaa", "sirata allatheena anaaa", "sirata allatheena anaaam", "sirata allatheena anaaamt", "sirata allatheena anaaamta", "sirata allatheena anaaamta a", "sirata allatheena anaaamta aaa", "sirata allatheena anaaamta aaal", "sirata allatheena anaaamta aaalay", "sirata allatheena anaaamta aaalayhi", "sirata allatheena anaaamta aaalayhim", "sirata allatheena anaaamta aaalayhim g", "sirata allatheena anaaamta aaalayhim ghayr", "sirata allatheena anaaamta aaalayhim ghayri a", "sirata allatheena anaaamta aaalayhim ghayri almag", "sirata allatheena anaaamta aaalayhim ghayri almagh", "sirata allatheena anaaamta aaalayhim ghayri almaghd", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi a", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaa", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaal", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaala", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalay", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayh", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhi", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim w", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wa", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala a", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala al", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala ald", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala aldda", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddal", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalle", "sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleena"]
+
+
+======================================================
+[{"k":"sirata a","t":151,"n":3,"l":0},{"k":"sirata allat","t":152,"n":1,"l":949},{"k":"sirata allatheena a","t":157,"n":1,"l":1402},{"k":"sirata allatheena an","t":155,"n":1,"l":1078},{"k":"sirata allatheena ana","t":164,"n":1,"l":719},{"k":"sirata allatheena anaa","t":152,"n":1,"l":416},{"k":"sirata allatheena anaaa","t":152,"n":1,"l":754},{"k":"sirata allatheena anaaam","t":155,"n":1,"l":515},{"k":"sirata allatheena anaaamt","t":154,"n":1,"l":598},{"k":"sirata allatheena anaaamta","t":153,"n":1,"l":322},{"k":"sirata allatheena anaaamta a","t":154,"n":1,"l":883},{"k":"sirata allatheena anaaamta aaa","t":151,"n":1,"l":754},{"k":"sirata allatheena anaaamta aaal","t":157,"n":1,"l":890},{"k":"sirata allatheena anaaamta aaalay","t":152,"n":1,"l":544},{"k":"sirata allatheena anaaamta aaalayhi","t":156,"n":1,"l":764},{"k":"sirata allatheena anaaamta aaalayhim","t":151,"n":1,"l":624},{"k":"sirata allatheena anaaamta aaalayhim g","t":153,"n":1,"l":1237},{"k":"sirata allatheena anaaamta aaalayhim ghayr","t":154,"n":1,"l":1254},{"k":"sirata allatheena anaaamta aaalayhim ghayri a","t":154,"n":1,"l":754},{"k":"sirata allatheena anaaamta aaalayhim ghayri almag","t":151,"n":1,"l":1025},{"k":"sirata allatheena anaaamta aaalayhim ghayri almagh","t":156,"n":1,"l":317},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghd","t":157,"n":1,"l":804},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi","t":153,"n":1,"l":1169},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi a","t":151,"n":1,"l":598},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaa","t":154,"n":1,"l":821},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaal","t":152,"n":1,"l":504},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaala","t":155,"n":1,"l":486},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalay","t":155,"n":1,"l":940},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayh","t":150,"n":1,"l":503},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhi","t":157,"n":1,"l":520},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim","t":152,"n":1,"l":736},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim w","t":150,"n":1,"l":626},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wa","t":154,"n":1,"l":310},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala a","t":152,"n":1,"l":1077},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala al","t":154,"n":1,"l":405},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala ald","t":150,"n":1,"l":675},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala aldda","t":151,"n":1,"l":737},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddal","t":155,"n":1,"l":438},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalle","t":156,"n":1,"l":711},{"k":"sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalleena","t":154,"n":1,"l":791}] controllers.js:63
+sirata allatheena anaaamta aaalayhim ghayri almaghdoobi aaalayhim wala alddalle
+===========================================================
+
+
+Highlight search hits:
+http://jsfiddle.net/W4cdY/
+plugin: http://code.google.com/p/jquery-highlight/downloads/list
+
+rabbi.*hamhu.*
+
+phonetics@islamiCity.com
+===========================
+RasoolAllah
+inna atayna kal kawsar
+Alif laam meem
+YA EYYUHENNEBIY
+Allaha yuhibbu
+Allahu la yuhibbu
+Muhammadun Rasululullah, Mohammadurrasululullah, Muhamadun Rasoolulullah
+Jannah
+Amanar rasoolu, Kul huwallahu ahad, La ila he illah 
+Yaa ayyuhallathina aamanoo
+Allahu  yuhibbul
+Ya ayyuha alnnabiyyu
+
+
+
+
+
+
+==========================================================================
+var verseno = 100;
+
+var getVerse = function(verseno){
+	var verse = {
+		no: verseno,
+		bare:  BuckToBare(gq.dsbuck.join('\n')).split('\n')[verseno],
+		lbare: BuckToBare(gq.dslem.join('\n')).split('\n')[verseno],
+		root: gq.dsroot[verseno],
+		
+		word: gq.dsword[verseno],
+		corpus: gq.dscorpus[verseno],
+		
+		buck: gq.dsbuck[verseno],
+		lem: gq.dslem[verseno],
+		translit: gq.dstranslit[verseno],
+		trans: gq.dstrans[verseno] 
+	}
+	return verse;
+}
+JSON.stringify( getVerse(verseno) );
+	
+
+BuckToBare(gq.dslem.join('\n')).split('\n')[100]	
+"qAl An kAn - dAr Axr End Allh xAlSp mn dwn nAs ytmn mwt An kAn SAdq"
+(gq.dslem.join('\n')).split('\n')[100]
+"qaAla <in kaAna - daAr A^xir Eind {ll~ah xaAliSap min duwn n~aAs yataman~a mawot <in kaAna SaAdiq"
+BuckToBare(gq.dsbuck.join('\n')).split('\n')[100]
+"ql An kAnt lkm AldAr Al'Axrp End Allh xAlSp mn dwn AlnAs ftmnwA@ Almwt An kntm SAdqyn"
+(gq.dsbuck.join('\n')).split('\n')[100]
+"qulo <in kaAnato lakumu {ld~aAru {lo'aAxirapu Einda {ll~ahi xaAliSapF m~in duwni {ln~aAsi fataman~awuA@ {lomawota <in kuntumo Sa`diqiyna"
+gq.dsroot[100]
+"qwl - kwn - dwr Axr End Alh xlS - dwn nws mny mwt - kwn Sdq"
+gq.dstranslit[100]
+undefined
+gq.dsword[100]
+"Say,$`If -$is$for you$the home$(of) the Hereafter$**with Allah$**with Allah$exclusively,$**excluding$**excluding$the mankind,$then wish$(for) [the] death,$if$you are$truthful.`$"
+gq.dscorpus[100]
+"V|IMPV|2MS COND|PERF|SP:kaAn|3FS PRON|2MP N|FS|NOM ADJ|FS|NOM LOC|ACC PN|GEN N|ACT|PCPL|F|INDEF|ACC P|GEN N|MP|GEN V|IMPV|(V)|2MP N|M|ACC COND|PERF|SP:kaAn|2MP N|ACT|PCPL|MP|ACC"

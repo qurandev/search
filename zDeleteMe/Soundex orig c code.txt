@@ -1,0 +1,134 @@
+        public static string ArComputeintial(string word, int length)
+        {
+            // Value to return
+            string value = "";
+
+
+            switch (word[0])
+            {
+                case 'Ç':
+                case 'Ã':
+                case 'Å':
+                case 'Â':
+                    {
+                        word = word.Substring(1, word.Length - 1);
+                    }
+                    break;
+
+            }
+
+            // Size of the word to process
+            int size = word.Length;
+            // Make sure the word is at least two characters in length
+            if (size > 1)
+            {
+
+
+
+                // Convert the word to character array for faster processing
+                char[] chars = word.ToCharArray();
+                // Buffer to build up with character codes
+                StringBuilder buffer = new StringBuilder();
+                buffer.Length = 0;
+                // The current and previous character codes
+                int prevCode = 0;
+                int currCode = 0;
+                // Append the first character to the buffer
+
+                //switch (chars[0])
+                //{
+
+                //    case 'æ':
+                //    case 'Ä':
+                //    case 'Ñ':
+                //    case 'Ò':
+                //    case 'Í':
+                //    case 'Î':
+                //    case 'Ì':
+                //    case 'å':
+                //    case 'Ê':
+                //        buffer.Append('x');
+                //        break;
+                //    default:
+                //        buffer.Append(chars[0]);
+                //        break;
+                //}
+
+                buffer.Append('x');
+               
+                // Loop through all the characters and convert them to the proper character code
+                for (int i = 1; i < size; i++)
+                {
+                    switch (chars[i])
+                    {
+                        case 'Ç':
+                        case 'Ã':
+                        case 'Å':
+                        case 'Â':
+                        case 'Í':
+                        case 'Î':
+                        case 'å':
+                        case 'Ú':
+                        case 'Û':
+                        case 'Ô':
+                        case 'æ':
+                        case 'í':
+                            currCode = 0;
+                            break;
+                        case 'Ý':
+                        case 'È':
+                            currCode = 1;
+                            break;
+                        
+                        case 'Ì':
+                        case 'Ò':
+                        case 'Ó':
+                        case 'Õ':
+                        case 'Ù':
+                        case 'Þ':
+                        case 'ß':
+                            currCode = 2;
+                            break;
+                        case 'Ê':
+                        case 'Ë':
+                        case 'Ï':
+                        case 'Ð':
+                        case 'Ö':
+                        case 'Ø':
+                            currCode = 3;
+                            break;
+                        case 'á':
+                            currCode = 4;
+                            break;
+                        case 'ã':
+                        case 'ä':
+                            currCode = 5;
+                            break;
+                        case 'Ñ':
+                            currCode = 6;
+                            break;
+                    }
+
+                    // Check to see if the current code is the same as the last one
+                    if (currCode != prevCode)
+                    {
+                        // Check to see if the current code is 0 (a vowel); do not process vowels
+                        if (currCode != 0)
+                            buffer.Append(currCode);
+                    }
+                    // Set the new previous character code
+                    prevCode = currCode;
+                    // If the buffer size meets the length limit, then exit the loop
+                    if (buffer.Length == length)
+                        break;
+                }
+                // Pad the buffer, if required
+                size = buffer.Length;
+                if (size < length)
+                    buffer.Append('0', (length - size));
+                // Set the value to return
+                value = buffer.ToString();
+            }
+            // Return the value
+            return value;
+        }
