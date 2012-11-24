@@ -1,15 +1,8 @@
-﻿<!doctype html>
-<html lang="en" ng-app="myApp">
+﻿<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ Quran Search</title>
-  <link rel="stylesheet" href="css/app.css"/>
-	<!-- CSS Files -->
-	<link type="text/css" href="css/base.css" rel="stylesheet" />
-	<link type="text/css" href="css/bootstrap.css" rel="stylesheet" />
-	<!-- <link type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" /> -->
-	<!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
-
+    <title>Quran Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -74,8 +67,7 @@
 <script src="javascripts/GlobalQuran.js?v=3.4"></script>
 <script src='javascripts/xregexp.js' ></script>
 </head>
-
-
+<body>
 <body>
   	<div class="mainbar">
       <div class="mainbar-inner">
@@ -89,7 +81,7 @@
           <div class="nav-collapse">
             <ul class="nav pull-right">
               <li><a href="http://blog.globalquran.com/forums/">Feedback</a></li>
-              <li><a href="http://labs.globalquran.com"><img src="images/favicon.ico" width="18" /> Back to Lab</a></li>
+              <li><a href="http://labs.globalquran.com"><img src="../img/favicon.jpg" width="18" /> Back to Lab</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -252,45 +244,17 @@ initializeMapper();
 textarea{ width: auto !important; height: auto !important; min-width: 140px !important; height: 300px!important;}
 </style>
   <!-- <div class="container"> -->
-  <div class="container-fluid" ng-controller="searchController">
+  <div class="container-fluid">
 	<H3>Quran search</H3>
 	<div class="row-fluid">
 		<div class="span2">	 <!--Sidebar content--><BR/>
-			<input id=keyword ng-model="query" ng-change="getVerse(query)" zonkeyup="gq.search($('#keyword').val() )" value=1 />
+			<input id=keyword zonkeyup="gq.search($('#keyword').val() )" value=rHm />
 			<input id=dosearch type=button onclick="gq.doSearch($('#keyword').val() )" value="search" /><BR />
 			<strong>Summary</strong><BR />
 			<span id=summary>&nbsp;</span>
-			<HR>query<span ng-bind='query' ></span>
-			
-			<BR>
-			<div ng-repeat="property in verse">
-				<DIV ng-bind="property"></DIV><HR>
-			</div>
-			<BR>
-			
-<!--<span style=font-size:3em;>
-			<HR>words<span ng-bind='EnToAr(verse.words)'></span>
-			<HR>words_nostem<span ng-bind='EnToAr(verse.words_nostem)' ></span>
-			<HR>words_root<span ng-bind='EnToAr(verse.words_root)' ></span>
-			<HR>words_novowel<span ng-bind='EnToAr(verse.words_novowel)' ></span>
-			<HR>words_nostem_novowel<span ng-bind='EnToAr(verse.words_nostem_novowel)' ></span>
-</span>
-			
-			<HR>words<span ng-bind='verse.words'></span>
-			<HR>words_nostem<span ng-bind='verse.words_nostem' ></span>
-			<HR>words_root<span ng-bind='verse.words_root' ></span>
-			<HR>words_novowel<span ng-bind='verse.words_novowel' ></span>
-			<HR>words_nostem_novowel<span ng-bind='verse.words_nostem_novowel' ></span>
-			<HR>words_en<span ng-bind='verse.words_en' ></span>
-			<HR>words_corpus<span ng-bind='verse.words_corpus' ></span>
-			<HR>words_translit<span ng-bind='verse.words_translit' ></span>
-			<HR>words_trans<span ng-bind='verse.words_trans' ></span>-->
 		</div>
 		<div id=results2 class="span10"><BR /><BR />
-			<strong>Search:</strong> &nbsp;&nbsp;
-			<input type=text id=searchPhonetic ng-model="search" value="" ng-change="searchPhonetic(search)" placeholder="enter Phonetic search here... ex: Alhamdulillah" /><BR>
-			<div ng-bind="search_regex"></div>
-			<PRE><div style="height: 400px; overflow: scroll; text-align: left;" ng-bind="result"></div><HR></PRE>
+			<strong>Search results:</strong><BR />
 		  <!--Body content-->
 			<div class="span2"><span></span><textarea id=buck rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=bare rows=30 columns=50></textarea></div>
@@ -324,8 +288,6 @@ var gq = {
 		else if(type == 'corpus'){ gq.ds4 = gq.dscorpus = _DATA.split('\n'); }
 		else if(type == 'root'){ gq.dsroot = _DATA.split('\n'); }
 		else if(type == 'lem'){  gq.dslem  = _DATA.split('\n'); }
-		else if(type == 'trans'){  gq.dstrans  = _DATA.split('\n'); }
-		else if(type == 'translit'){  gq.dstranslit  = _DATA.split('\n'); }
 		else return;
 		
         if(gq.loaded) return; var parts = [gq.MANZIL1, gq.MANZIL234, gq.MANZIL56, gq.MANZIL7], test = true;
@@ -437,8 +399,8 @@ var gq = {
 		if(gq._data[type]){ obj = result[_keyword][ type ] = gq.search2(temp, regexp, gq._data[type] ); gq.display(_keyword, type, obj);}
 		        
 		type = "translit"; temp = keyword; regexp = new RegExp(".*(?:" + escapeRegex(temp) + ").*", "gi"); 
-		if(!gq._data[type]){ if(gq._rawdata[type]){	var _rawArr = $( gq._rawdata[type] ).text().split('\n'); //strip out the html markup; 
-													gq._data[type] = prefixLineno( _rawArr ); } }
+		var _rawArr = $( gq._rawdata[type] ).text().split('\n');
+		if(!gq._data[type]){ if(gq._rawdata[type]){	gq._data[type] = prefixLineno( _rawArr ); } }
 		if(gq._data[type]){ obj = result[_keyword][ type ] = gq.search2(temp, regexp, gq._data[type] ); gq.display(_keyword, type, obj);}
 		
         
@@ -480,15 +442,6 @@ var BuckToBare = function(str){ if(!str) return;
 <script src=data/manzil2,3,4.js></script>
 <script src=data/qBare.txt_script.js></script>
 -->
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib\underscore-min.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
-  
-  
 <script src=data/qBuck.txt_script.js></script>
 
 <script src=data/qRoot.txt_script.js></script>

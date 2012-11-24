@@ -6,8 +6,7 @@
   <link rel="stylesheet" href="css/app.css"/>
 	<!-- CSS Files -->
 	<link type="text/css" href="css/base.css" rel="stylesheet" />
-	<link type="text/css" href="css/bootstrap.css" rel="stylesheet" />
-	<!-- <link type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" /> -->
+	<link type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" />
 	<!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,7 +88,7 @@
           <div class="nav-collapse">
             <ul class="nav pull-right">
               <li><a href="http://blog.globalquran.com/forums/">Feedback</a></li>
-              <li><a href="http://labs.globalquran.com"><img src="images/favicon.ico" width="18" /> Back to Lab</a></li>
+              <li><a href="http://labs.globalquran.com"><img src="../img/favicon.jpg" width="18" /> Back to Lab</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -255,7 +254,7 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
   <div class="container-fluid" ng-controller="searchController">
 	<H3>Quran search</H3>
 	<div class="row-fluid">
-		<div class="span2">	 <!--Sidebar content--><BR/>
+		<div class="span12">	 <!--Sidebar content--><BR/>
 			<input id=keyword ng-model="query" ng-change="getVerse(query)" zonkeyup="gq.search($('#keyword').val() )" value=1 />
 			<input id=dosearch type=button onclick="gq.doSearch($('#keyword').val() )" value="search" /><BR />
 			<strong>Summary</strong><BR />
@@ -264,11 +263,14 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 			
 			<BR>
 			<div ng-repeat="property in verse">
-				<DIV ng-bind="property"></DIV><HR>
+				property: <DIV ng-bind="property"></DIV>
+				index: <DIV ng-bind="$index"></DIV>
+				value: <DIV ng-bind="$key"></DIV>
 			</div>
 			<BR>
 			
-<!--<span style=font-size:3em;>
+			<HR>soundex&nbsp;&nbsp;&nbsp;&nbsp;<span ng-bind='soundex(EnToAr(query))'></span><BR><BR>
+<span style=font-size:3em;>
 			<HR>words<span ng-bind='EnToAr(verse.words)'></span>
 			<HR>words_nostem<span ng-bind='EnToAr(verse.words_nostem)' ></span>
 			<HR>words_root<span ng-bind='EnToAr(verse.words_root)' ></span>
@@ -284,13 +286,10 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 			<HR>words_en<span ng-bind='verse.words_en' ></span>
 			<HR>words_corpus<span ng-bind='verse.words_corpus' ></span>
 			<HR>words_translit<span ng-bind='verse.words_translit' ></span>
-			<HR>words_trans<span ng-bind='verse.words_trans' ></span>-->
+			<HR>words_trans<span ng-bind='verse.words_trans' ></span>
 		</div>
 		<div id=results2 class="span10"><BR /><BR />
-			<strong>Search:</strong> &nbsp;&nbsp;
-			<input type=text id=searchPhonetic ng-model="search" value="" ng-change="searchPhonetic(search)" placeholder="enter Phonetic search here... ex: Alhamdulillah" /><BR>
-			<div ng-bind="search_regex"></div>
-			<PRE><div style="height: 400px; overflow: scroll; text-align: left;" ng-bind="result"></div><HR></PRE>
+			<strong>Search results:</strong><BR />
 		  <!--Body content-->
 			<div class="span2"><span></span><textarea id=buck rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=bare rows=30 columns=50></textarea></div>
@@ -474,11 +473,11 @@ var BuckToBare = function(str){ if(!str) return;
 }
 
 </script>
-<!--
+
 <script src=data/manzil1,7.js></script>
 <script src=data/manzil5,6.js></script>
 <script src=data/manzil2,3,4.js></script>
-<script src=data/qBare.txt_script.js></script>
+<!--<script src=data/qBare.txt_script.js></script>
 -->
   <script src="lib/angular/angular.js"></script>
   <script src="lib\underscore-min.js"></script>
