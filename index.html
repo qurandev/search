@@ -212,37 +212,6 @@ var initializeMapper = function(){
 	charsArr.push( ' ' ); buckArr.push( ' ' );
 	charsArr.push( ';' ); buckArr.push( ';' );
 	charsArr.push( '\n' ); buckArr.push( '\n' );
-/*	
-	charsArr.push( 'ع' ); buckArr.push( '3' ); //ayn //support for arabi/chat letters
-	charsArr.push( 'ء' ); buckArr.push( '2' ); //hamza
-	charsArr.push( 'ح' ); buckArr.push( '7' ); //HAA
-	charsArr.push( 'خ' ); buckArr.push( '5' ); //KHAA
-	charsArr.push( 'ص' ); buckArr.push( '9' ); //Saad
-	charsArr.push( 'ط' ); buckArr.push( '6' ); //Thaw
-
-	charsArr.push( charsArr[2] ); buckArr.push( 'B' ); //Support for Capital letters
-	charsArr.push( charsArr[4] ); buckArr.push( 'V' );
-	charsArr.push( charsArr[5] ); buckArr.push( 'J' );
-	charsArr.push( charsArr[10] ); buckArr.push( 'R' );
-	charsArr.push( charsArr[19] ); buckArr.push( 'G' );
-	charsArr.push( charsArr[21] ); buckArr.push( 'Q' );
-	charsArr.push( charsArr[23] ); buckArr.push( 'L' );
-	charsArr.push( charsArr[24] ); buckArr.push( 'M' );
-	charsArr.push( charsArr[27] ); buckArr.push( 'W' );
-	charsArr.push( 'ة' ); buckArr.push( 'P' );
-	
-	//For IndoPak script extra letters
-	charsArr.push( 'ی' ); buckArr.push( 'y' );
-	charsArr.push( 'ۃ' ); buckArr.push( 'p' );
-	charsArr.push( 'ہ' ); buckArr.push( 'h' );
-	charsArr.push( 'ی' ); buckArr.push( 'Y' );
-	charsArr.push( 'ک' ); buckArr.push( 'k' );
-	charsArr.push( 'ۤ ' ); buckArr.push( '?' );
-	charsArr.push( 'ۤۚ ' ); buckArr.push( '?' );
-	charsArr.push( 'ۡ ' ); buckArr.push( '?' );
-	charsArr.push( 'ۚ ' ); buckArr.push( '?' );
-	charsArr.push( 'ۤ ' ); buckArr.push( '?' );
-*/
 	_charsArr = charsArr; _buckArr = buckArr;
 	bInitialized = true;
 }		
@@ -253,21 +222,22 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 </style>
   <!-- <div class="container"> -->
   <div class="container-fluid" ng-controller="searchController">
-	<H3>Quran phonetic search (Alpha)</H3>
 	<div class="row-fluid">
-		<div class="span2">	 <!--Sidebar content--><BR/>
-			<input id=keyword ng-model="query" ng-change="getVerse(query)" zonkeyup="gq.search($('#keyword').val() )" value=1 />
-			<input id=dosearch type=button onclick="gq.doSearch($('#keyword').val() )" value="search" /><BR />
-			<strong>Summary</strong><BR />
-			<span id=summary>&nbsp;</span>
-			<HR>query<span ng-bind='query' ></span>
-			
-			<BR>
-			<div ng-repeat="property in verse">
-				<DIV ng-bind="property"></DIV><HR>
-			</div>
-			<BR>
-			
+		<div class="span2">
+			<H3>Quran phonetic search (Alpha)</H3><!--Sidebar content--><BR/>
+			<div style="display:none;">
+				<input id=keyword ng-model="query" ng-change="getVerse(query)" zonkeyup="gq.search($('#keyword').val() )" value=1 />
+				<input id=dosearch type=button onclick="gq.doSearch($('#keyword').val() )" value="search" /><BR />
+				<strong>Summary</strong><BR />
+				<span id=summary>&nbsp;</span>
+				<HR>query<span ng-bind='query' ></span>
+				
+				<BR>
+				<div ng-repeat="property in verse">
+					<DIV ng-bind="property"></DIV><HR>
+				</div>
+				<BR>
+			</div>			
 <!--<span style=font-size:3em;>
 			<HR>words<span ng-bind='EnToAr(verse.words)'></span>
 			<HR>words_nostem<span ng-bind='EnToAr(verse.words_nostem)' ></span>
@@ -285,7 +255,7 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 			<HR>words_corpus<span ng-bind='verse.words_corpus' ></span>
 			<HR>words_translit<span ng-bind='verse.words_translit' ></span>
 			<HR>words_trans<span ng-bind='verse.words_trans' ></span>-->
-		</div><BR/>
+		</div>
 		<div id=results2 class="span10">
 			<strong>Search:</strong> &nbsp;&nbsp;
 			<input type=text id=searchPhonetic ng-model="search" value="" ng-change="searchPhonetic(search)" placeholder="enter Phonetic search here... ex: Alhamdulillah" />
@@ -295,7 +265,7 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 					<span ng-repeat="line in result.split('\n')">
 					</span><BR/>
 				</span>
-				<span ng-show="search && resultPretty.length > 0"><BR/>
+				<div ng-show="search && resultPretty.length > 0"><BR/>
 				  <TABLE class="table table-striped table-bordered table-condensed">
 					<thead>
 						<tr><td>#</td><td>Verse&nbsp;&nbsp;&nbsp;&nbsp;<B><span style="margin-left:350px;" class="badge badge-inverse" ng-bind="resultPretty.length"></span><span>&nbsp;results for "<span ng-bind="search"></span>"</span></B></td></tr>
@@ -308,9 +278,8 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 						</tr>
 					</tbody>
 				  </table>
-				</span>
+				</div>
 			</div>			
-			<HR>
 		  <!--Body content--><!--
 			<div class="span2"><span></span><textarea id=buck rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=bare rows=30 columns=50></textarea></div>
@@ -321,8 +290,8 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 			<div class="span2"><span></span><textarea id=trans rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=translit rows=30 columns=50></textarea></div>-->
 		</div>
-	  </div>
 	</div>
+  </div>
 <script>
 var gq = {
     ds1: [], ds2: [], ds3: [], ds4: [], 
