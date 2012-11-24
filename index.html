@@ -295,7 +295,7 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 					<span ng-repeat="line in result.split('\n')">
 					</span><BR/>
 				</span>
-				<span ng-show="resultPretty.length > 0"><BR/>
+				<span ng-show="search && resultPretty.length > 0"><BR/>
 				  <TABLE class="table table-striped table-bordered table-condensed">
 					<thead>
 						<tr><td>#</td><td>Verse&nbsp;&nbsp;&nbsp;&nbsp;<B><span style="margin-left:350px;" class="badge badge-inverse" ng-bind="resultPretty.length"></span><span>&nbsp;results for "<span ng-bind="search"></span>"</span></B></td></tr>
@@ -507,7 +507,7 @@ var BuckToBare = function(str){ if(!str) return;
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
   
-  
+  <!--
 <script src=data/qBuck.txt_script.js></script>
 
 <script src=data/qRoot.txt_script.js></script>
@@ -515,6 +515,6 @@ var BuckToBare = function(str){ if(!str) return;
 <script src=data/qCorpus.txt_script.js></script>
 
 <script src=data/qWord.txt_script.js></script>
-<script src=data/TANZIL.en.sahih.txt_script.js></script>
+<script src=data/TANZIL.en.sahih.txt_script.js></script>-->
 <script src=data/TANZIL.en.transliteration.txt_script.js></script>
 </body>
