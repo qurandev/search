@@ -60,13 +60,13 @@ var searchController = function($scope, $http, $location){
 		var thisSearch, result = '', _target, startTime = new Date().getTime(), endTime, lastSearchActual, thisSearchActual, lastSearchParts, isLastSearchContinue, isLastSearchAdd, isLastSearchRemove, doBreak,regex, tries=0, searchActual='', wildcard = ".{0,2}?", wildcard2 = ".*?", wildcardCh = '~', lastSearchHasWildcard, lastSearch, lastResult;
 		if(!_phon){ _phon = $( gq.dstranslit.join('\n') ).text(); } _target = _phon;
 		thisSearch = $scope.search;
-		thisSearchActual = thisSearch.replace( RegExp(wildcard, "g"), '' );
-		if(!thisSearch || thisSearch.length < 3){ $scope.search_regex = ''; $scope.result = 'Enter a search word with atleast 3 characters. returning all..\n\n\n' + _phon.substring(0, 10000); return; }
+		thisSearchActual = thisSearch.replace( RegExp(wildcard, "gi"), '' );
+		if(!thisSearch || thisSearch.length < 3){ $scope.search_regex = ''; $scope.resultPretty = []; $scope.result = 'Enter a search word with atleast 3 characters. returning all..\n\n\n' + _phon.substring(0, 10000); return; }
 		while(!doBreak && tries <= 2){
 			if($scope.lastSearch){
 				lastSearch = $scope.lastSearch;
 				lastResult = $scope.lastResult;
-				lastSearchActual = lastSearch.replace( RegExp(escapeRegex( wildcard ), "g"), '' );
+				lastSearchActual = lastSearch.replace( RegExp(escapeRegex( wildcard ), "gi"), '' );
 				lastSearchHasWildcard = (lastSearch.indexOf( wildcard ) != -1);
 				lastSearchParts = thisSearchActual.split( lastSearchActual );
 				isLastSearchAdd = (_.first(lastSearchParts) == "") && (lastSearchParts.length == 2);//this is addition to last search
@@ -79,12 +79,12 @@ var searchController = function($scope, $http, $location){
 				}
 			}else{ _target = _phon; /* i.e. search entire data */ }
 			
-			if(isLastSearchRemove /*&& lastSearchHasWildcard*/){ debugger; //strip out as many characters from the regex as were removed, taking wildcard as 1 char!
-				var lastSearchTemp = lastSearch.replace( RegExp(escapeRegex( wildcard ), "g"), wildcardCh );
+			if(isLastSearchRemove /*&& lastSearchHasWildcard*/){ //debugger; //strip out as many characters from the regex as were removed, taking wildcard as 1 char!
+				var lastSearchTemp = lastSearch.replace( RegExp(escapeRegex( wildcard ), "gi"), wildcardCh );
 				var charsToRemove = lastSearchParts[1].length;
 				if( lastSearchTemp[ lastSearchTemp.length - charsToRemove - 1 ] == wildcardCh ) ++charsToRemove; //ensure not ending in wildcard!
 				lastSearchTemp = lastSearchTemp.substring(0, lastSearchTemp.length - charsToRemove);
-				thisSearch = lastSearchTemp.replace( RegExp(escapeRegex( wildcardCh ), "g"), wildcard );
+				thisSearch = lastSearchTemp.replace( RegExp(escapeRegex( wildcardCh ), "gi"), wildcard );
 			}
 			else if(isLastSearchAdd){//debugger;
 				if(!lastSearchHasWildcard && tries<1){
@@ -114,11 +114,31 @@ var searchController = function($scope, $http, $location){
 				$scope.lastResult = result; doBreak = true;
 			}else{ continue; }
 		}
-		if(result && result.length > 0){ $scope.lastResult = result.join('\n'); $scope.result = result.length + ' results.\n\n' + $scope.lastResult; return; }
+		if(result && result.length > 0){ $scope.lastResult = result.join('\n'); $scope.result = result.length + ' results.\n\n' + 
+										$scope.prettify($scope.search_regex, $scope.lastResult); return; }
 		else{ $scope.result = 'no results. returning all..\n\n\n' + _phon.substring(0, 10000); return; }
 	}
 	
+	$scope.prettify = function(regex, result){
+		var ret = '', out='', arr;
+		$scope.resultPretty = [];
+		_.each(result.split('\n'), function(line){
+			arr = line.match(new RegExp("(^.*)(" + regex + ")(.*$)", "im") );
+			if(arr && arr.length >= 4){
+				$scope.resultPretty.push( arr );//ret += arr[1] + '[[' + arr[2] + ']]' + arr[3] + '\n';
+			}			
+		});
+		//ret += '<BR>' + result;
+		return result;
+	}
 	
+	$scope.getVerse = function(firstpart){ if(!firstpart) return;
+		//firstpart is like 12|79|xxx yyy zzz..
+		var arr = firstpart.split('|'), ret = {};
+		ret['v'] = ( arr[0] +':'+ arr[1] );
+		ret['a'] = ( arr[2] );
+		return ret;
+	}
 	
 	$scope._SEARCH_DEBOUNCE_DELAY = 150;
 	$scope.search = $scope.lastSearch = "";

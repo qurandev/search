@@ -88,8 +88,8 @@
          
           <div class="nav-collapse">
             <ul class="nav pull-right">
-              <li><a href="http://blog.globalquran.com/forums/">Feedback</a></li>
-              <li><a href="http://labs.globalquran.com"><img src="images/favicon.ico" width="18" /> Back to Lab</a></li>
+              <!--<li><a href="http://blog.globalquran.com/forums/">Feedback</a></li>-->
+              <li><a href="http://qurandev.github.com"><img src="images/favicon.ico" width="18" /> Back to home</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -253,7 +253,7 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 </style>
   <!-- <div class="container"> -->
   <div class="container-fluid" ng-controller="searchController">
-	<H3>Quran search</H3>
+	<H3>Quran phonetic search (Alpha)</H3>
 	<div class="row-fluid">
 		<div class="span2">	 <!--Sidebar content--><BR/>
 			<input id=keyword ng-model="query" ng-change="getVerse(query)" zonkeyup="gq.search($('#keyword').val() )" value=1 />
@@ -285,22 +285,41 @@ textarea{ width: auto !important; height: auto !important; min-width: 140px !imp
 			<HR>words_corpus<span ng-bind='verse.words_corpus' ></span>
 			<HR>words_translit<span ng-bind='verse.words_translit' ></span>
 			<HR>words_trans<span ng-bind='verse.words_trans' ></span>-->
-		</div>
-		<div id=results2 class="span10"><BR /><BR />
+		</div><BR/>
+		<div id=results2 class="span10">
 			<strong>Search:</strong> &nbsp;&nbsp;
-			<input type=text id=searchPhonetic ng-model="search" value="" ng-change="searchPhonetic(search)" placeholder="enter Phonetic search here... ex: Alhamdulillah" /><BR>
-			<div ng-bind="search_regex"></div>
-			<PRE><div style="height: 400px; overflow: scroll; text-align: left;" ng-bind="result"></div><HR></PRE>
-		  <!--Body content-->
+			<input type=text id=searchPhonetic ng-model="search" value="" ng-change="searchPhonetic(search)" placeholder="enter Phonetic search here... ex: Alhamdulillah" />
+			<span class=pull-right><span class=muted>Regex:</span><input type=text disabled ng-model="search_regex"/></span>
+			<div style="height: 650px; overflow: auto; text-align: left;" Xng-bind="result">
+				<span ng-show="resultPretty.length == 0">
+					<span ng-repeat="line in result.split('\n')">
+					</span><BR/>
+				</span>
+				<span ng-show="resultPretty.length > 0"><BR/>
+				  <TABLE class="table table-striped table-bordered table-condensed">
+					<thead>
+						<tr><td>#</td><td>Verse&nbsp;&nbsp;&nbsp;&nbsp;<B><span style="margin-left:350px;" class="badge badge-inverse" ng-bind="resultPretty.length"></span><span>&nbsp;results for "<span ng-bind="search"></span>"</span></B></td></tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="lineArr in resultPretty | limitTo:15">
+						  <td><span ng-show="(s = lineArr[1].split('|')[0]) && (v = lineArr[1].split('|')[1]) && (a = lineArr[1].split('|')[2]) && ''"></span>
+						  <A HREF="http://quran.com/{{s + '/' + v}}" target=_><span ng-bind="s +':'+ v"></span></A></td>
+						  <td><span ng-bind="a"></span><B><I><span class="searchhit" ng-bind="lineArr[2]"></span></I></B><span ng-bind="lineArr[3]"></span></td>
+						</tr>
+					</tbody>
+				  </table>
+				</span>
+			</div>			
+			<HR>
+		  <!--Body content--><!--
 			<div class="span2"><span></span><textarea id=buck rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=bare rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=lem rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=root rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=corpus rows=30 columns=50></textarea></div>
-			<!--<textarea id=corpusFULL rows=30 columns=100></textarea>-->
 			<div class="span2"><span></span><textarea id=word rows=30 columns=50></textarea></div>
 			<div class="span2"><span></span><textarea id=trans rows=30 columns=50></textarea></div>
-			<div class="span2"><span></span><textarea id=translit rows=30 columns=50></textarea></div>
+			<div class="span2"><span></span><textarea id=translit rows=30 columns=50></textarea></div>-->
 		</div>
 	  </div>
 	</div>
